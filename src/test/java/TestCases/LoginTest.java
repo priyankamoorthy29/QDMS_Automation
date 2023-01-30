@@ -23,8 +23,7 @@ public class LoginTest extends DriverInitialization {
 		PageFactory.initElements(driver, loginpg);
 
 		Thread.sleep(2000);
-		FileInputStream file = new FileInputStream(
-				"C:\\vithusha\\QDMS_Automation\\src\\test\\java\\Data\\Data.xlsx");
+		FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\java\\Data\\Data.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheet("Login");
 

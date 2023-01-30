@@ -6,318 +6,323 @@ import java.io.IOException;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
 
 import Base.DriverInitialization;
-
-import Pages.SBUData;
+import Pages.AddSbuPage;
 
 public class SBUDataTest extends DriverInitialization {
-	SBUData addSbupg = new SBUData();
+	AddSbuPage addSbupg = new AddSbuPage();
 
-//	SoftAssert sa = new SoftAssert();
-
-	@Test(priority = 0)
-	public void AddSbuData() throws InterruptedException, IOException {
+	@Test
+	public void addSbuButton() throws InterruptedException, IOException {
+		PageFactory.initElements(driver, addSbupg);
 		driver.navigate().refresh();
+		Thread.sleep(1000);
+//	click Add SBU Button
+		AddSbuPage.AddSbuBtn.click();
+		Thread.sleep(3000);
+//		Checking Form Heading	
+		String expectedSbuFormHeading = "Add SBU";
+		String actualSbuFormHeading = AddSbuPage.SbuFormHeading.getText();
+		testCase = extent.createTest("SBU Form Heading");
+		try {
+			Assert.assertEquals(actualSbuFormHeading, expectedSbuFormHeading);
+			testCase.log(Status.INFO, "SBU Form Expected Heading :- " + expectedSbuFormHeading);
+			testCase.log(Status.INFO, "SBU Form Actual Heading :- " + actualSbuFormHeading);
+			testCase.log(Status.PASS, "SBU Form Heading Correct");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Form Expected Heading :- " + expectedSbuFormHeading);
+			testCase.log(Status.INFO, "SBU Form Actual Heading :- " + actualSbuFormHeading);
+			testCase.log(Status.FAIL, "SBU Form Heading Wrong");
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Form Heading");
+		}
+
+//		checking SBU name Heading
+		String expectedSbuNameHeading = "Sub Business Unit:";
+		String actualSbuNameHeading = AddSbuPage.SbuNameHeading.getText();
+		testCase = extent.createTest("SBU Name Heading");
+		try {
+			Assert.assertEquals(actualSbuNameHeading, expectedSbuNameHeading);
+			testCase.log(Status.INFO, "SBU Name Expected Heading :- " + expectedSbuNameHeading);
+			testCase.log(Status.INFO, "SBU Name Actual Heading :- " + actualSbuNameHeading);
+			testCase.log(Status.PASS, "SBU Name Heading Correct");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Name Expected Heading :- " + expectedSbuNameHeading);
+			testCase.log(Status.INFO, "SBU Name Actual Heading :- " + actualSbuNameHeading);
+			testCase.log(Status.FAIL, "SBU Name Heading Wrong");
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Name Heading");
+		}
+
+//		checking SBU Description Heading
+		String expectedSbuDescriptionHeading = "Description:";
+		String actualSbuDescriptionHeading = AddSbuPage.SbuDescriptionHeading.getText();
+		testCase = extent.createTest("SBU Description Heading");
+		try {
+			Assert.assertEquals(actualSbuDescriptionHeading, expectedSbuDescriptionHeading);
+			testCase.log(Status.INFO, "SBU Description Expected Heading :- " + expectedSbuDescriptionHeading);
+			testCase.log(Status.INFO, "SBU Description Actual Heading :- " + actualSbuDescriptionHeading);
+			testCase.log(Status.PASS, "SBU Description Heading Correct");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Description Expected Heading :- " + expectedSbuDescriptionHeading);
+			testCase.log(Status.INFO, "SBU Description Actual Heading :- " + actualSbuDescriptionHeading);
+			testCase.log(Status.FAIL, "SBU Description Heading Wrong");
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Description Heading");
+		}
+
+//		checking SBU Name TextBox
+		boolean SBUNameTextBox = true;
+		boolean expectedSbuNameTextBox = true;
+		boolean actualSbuNameTextBox = AddSbuPage.SbuName.isDisplayed();
+		testCase = extent.createTest("SBU Name TextBox");
+		try {
+			Assert.assertEquals(actualSbuNameTextBox, expectedSbuNameTextBox);
+			testCase.log(Status.INFO, "SBU Name TextBox Expected Results :- " + expectedSbuNameTextBox);
+			testCase.log(Status.INFO, "SBU Name TextBox Actual Results :- " + actualSbuNameTextBox);
+			testCase.log(Status.PASS, "SBU Name TextBox Correctly Showing");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Name TextBox Expected Results :- " + expectedSbuNameTextBox);
+			testCase.log(Status.INFO, "SBU Name TextBox Actual Results :- " + actualSbuNameTextBox);
+			testCase.log(Status.FAIL, "SBU Name TextBox Wrongly Showing");
+			SBUNameTextBox = false;
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Name TextBox");
+			SBUNameTextBox = false;
+		}
+
+//		checking SBU Description TextBox
+		boolean SBUDescriptionTextBox = true;
+		boolean expectedSbuDescriptionTextBox = true;
+		boolean actualSbuDescriptionTextBox = AddSbuPage.SbuName.isDisplayed();
+		testCase = extent.createTest("SBU Description TextBox");
+		try {
+			Assert.assertEquals(actualSbuDescriptionTextBox, expectedSbuDescriptionTextBox);
+			testCase.log(Status.INFO, "SBU Description TextBox Expected Results :- " + expectedSbuDescriptionTextBox);
+			testCase.log(Status.INFO, "SBU Description TextBox Actual Results :- " + actualSbuDescriptionTextBox);
+			testCase.log(Status.PASS, "SBU Description TextBox Correctly Showing");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Description TextBox Expected Results :- " + expectedSbuDescriptionTextBox);
+			testCase.log(Status.INFO, "SBU Description TextBox Actual Results :- " + actualSbuDescriptionTextBox);
+			testCase.log(Status.FAIL, "SBU Description TextBox not Showing");
+			SBUDescriptionTextBox = false;
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Description TextBox");
+			SBUDescriptionTextBox = false;
+		}
+
+//		Checking Save Button
+		boolean SaveButton = true;
+		boolean expectedSaveButton = true;
+		boolean actualSaveButton = AddSbuPage.Submit.isDisplayed();
+		testCase = extent.createTest("SBU Save Button");
+		try {
+			Assert.assertEquals(actualSaveButton, expectedSaveButton);
+			testCase.log(Status.INFO, "SBU Save Button Expected Results :- " + expectedSaveButton);
+			testCase.log(Status.INFO, "SBU Save Button Actual Results :- " + actualSaveButton);
+			testCase.log(Status.PASS, "SBU Save Button Correctly Showing");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Save Button Expected Results :- " + expectedSaveButton);
+			testCase.log(Status.INFO, "SBU Save Button Actual Results :- " + actualSaveButton);
+			testCase.log(Status.FAIL, "SBU Save Button Not Showing");
+			SaveButton = false;
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Save Button");
+			SaveButton = false;
+		}
+
+//		Checking Cancel Button
+		boolean expectedCancelButton = true;
+		boolean actualCancelButton = AddSbuPage.CancelSbuBtn.isDisplayed();
+		testCase = extent.createTest("SBU Cancel Button");
+		try {
+			Assert.assertEquals(actualCancelButton, expectedCancelButton);
+			testCase.log(Status.INFO, "SBU Cancel Button Expected Results :- " + expectedCancelButton);
+			testCase.log(Status.INFO, "SBU Cancel Button Actual Results :- " + actualCancelButton);
+			testCase.log(Status.PASS, "SBU Cancel Button Correctly Showing");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Cancel Button Expected Results :- " + expectedCancelButton);
+			testCase.log(Status.INFO, "SBU Cancel Button Actual Results :- " + actualCancelButton);
+			testCase.log(Status.FAIL, "SBU Cancel Button Not Showing");
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Cancel Button");
+		}
+
+//		Checking Save Name
+		String expectedSaveButtonName = "Save";
+		String actualSaveButtonName = AddSbuPage.Submit.getText();
+		testCase = extent.createTest("SBU Save Button Name");
+		try {
+			Assert.assertEquals(actualSaveButtonName, expectedSaveButtonName);
+			testCase.log(Status.INFO, "SBU Save Button Name Expected Results :- " + expectedSaveButtonName);
+			testCase.log(Status.INFO, "SBU Save Button Name Actual Results :- " + actualSaveButtonName);
+			testCase.log(Status.PASS, "SBU Save Button Name Correct");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Save Button Name Expected Results :- " + expectedSaveButtonName);
+			testCase.log(Status.INFO, "SBU Save Button Name Actual Results :- " + actualSaveButtonName);
+			testCase.log(Status.FAIL, "SBU Save Button Name Wrong");
+
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Save Button Name");
+		}
+
+//		Checking Cancel Name
+		String expectedCancelButtonName = "Cancel";
+		String actualCancelButtonName = AddSbuPage.CancelSbuBtn.getText();
+		testCase = extent.createTest("SBU Cancel Button Name");
+		try {
+			Assert.assertEquals(actualCancelButtonName, expectedCancelButtonName);
+			testCase.log(Status.INFO, "SBU Cancel Button Name Expected Results :- " + expectedCancelButtonName);
+			testCase.log(Status.INFO, "SBU Cancel Button Name Actual Results :- " + actualCancelButtonName);
+			testCase.log(Status.PASS, "SBU Cancel Button Name Correct");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Cancel Button Name Expected Results :- " + expectedCancelButtonName);
+			testCase.log(Status.INFO, "SBU Cancel Button Name Actual Results :- " + actualCancelButtonName);
+			testCase.log(Status.FAIL, "SBU Cancel Button Name Wrong");
+
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Cancel Button Name");
+		}
+
+//		Checking Close button 
+		boolean expectedCloseButton = true;
+		boolean actualCloseButton = AddSbuPage.CloseBtn.isDisplayed();
+		testCase = extent.createTest("SBU Form Close Button");
+		try {
+			Assert.assertEquals(actualCancelButton, expectedCloseButton);
+			testCase.log(Status.INFO, "SBU Form close Button Expected Results :- " + expectedCloseButton);
+			testCase.log(Status.INFO, "SBU Form close Button Actual Results :- " + actualCloseButton);
+			testCase.log(Status.PASS, "SBU Form close Button Correctly Showing");
+		} catch (AssertionError e) {
+			testCase.log(Status.INFO, "SBU Form close Button Expected Results :- " + expectedCloseButton);
+			testCase.log(Status.INFO, "SBU Form close Button Actual Results :- " + actualCloseButton);
+			testCase.log(Status.FAIL, "SBU Form close Button Not Showing");
+		} catch (NoSuchElementException e) {
+			testCase.log(Status.FAIL, "Don't Have SBU Form close Button");
+		}
+
+//		close SBU form using Cancel button / close button / refresh
+		if (AddSbuPage.CancelSbuBtn.isDisplayed()) {
+			AddSbuPage.CancelSbuBtn.click();
+		} else if (AddSbuPage.CloseBtn.isDisplayed()) {
+			AddSbuPage.CloseBtn.click();
+		} else {
+			driver.navigate().refresh();
+		}
 		Thread.sleep(2000);
-//		SBUData.clickPagination.click();
-//		Thread.sleep(1000);
-//		SBUData.click100Pagination.click();
+//		if having SBU name TextBox , SBU Description TextBox and Save Button, Can be add new SBU 
+		if (SBUNameTextBox && SBUDescriptionTextBox && SaveButton) {
+//			Click Pagination Button
+			AddSbuPage.clickPagination.click();
+			Thread.sleep(1000);
+//			Change pagination to 100/Page 
+			AddSbuPage.click100Pagination.click();
 
-		FileInputStream file = new FileInputStream("C:\\Users\\Priyanka\\Documents\\PRIYANKA-ECLIPSE\\Automation_QDMS\\src\\test\\java\\Excel\\Data.xlsx"
-				);
-		XSSFWorkbook workbook = new XSSFWorkbook(file);
-		XSSFSheet sheet = workbook.getSheet("AddSbu");
+			FileInputStream file = new FileInputStream(
+					System.getProperty("user.dir") + "\\src\\test\\java\\Data\\Data.xlsx");
+			XSSFWorkbook workbook = new XSSFWorkbook(file);
+			XSSFSheet sheet = workbook.getSheet("AddSbu");
 
-		int rowcount = sheet.getLastRowNum();
-		for (int i = 0; i <= rowcount; i++) {
-			XSSFRow row = sheet.getRow(i);
+			int rowcount = sheet.getLastRowNum();
+			for (int i = 0; i <= rowcount; i++) {
+				XSSFRow row = sheet.getRow(i);
 
-			boolean check = (boolean) row.getCell(0).getBooleanCellValue();
-			String SBU = (String) row.getCell(1).getStringCellValue();
-			String Des = (String) row.getCell(2).getStringCellValue();
-// checkbox 
-			if (check == true) {
-// Checking SBU Already Exit or not
-				boolean status = false; 
-				Thread.sleep(1500);
-				System.out.println(SBU);
-				for (WebElement ele : SBUData.SbuColumn) {
-					String value = ele.getText();
-					if (value.contentEquals(SBU)) {
-						status = true;
-						break;
+				boolean check = (boolean) row.getCell(0).getBooleanCellValue();
+				String SBU = (String) row.getCell(1).getStringCellValue();
+				String Des = (String) row.getCell(2).getStringCellValue();
+//				Check checkbox
+				if (check == true) {
+//					Checking SBU Already Exit or not
+					boolean checkAlreadyExit = false;
+					for (WebElement ele : AddSbuPage.SbuColumn) {
+						String value = ele.getText();
+						if (value.contentEquals(SBU)) {
+							checkAlreadyExit = true;
+							break;
+						}
 					}
-				}
-				if (status) {
-					System.out.println("Already exist this " + SBU);
-					testCase = extent.createTest("Add SBU");
-					testCase.log(Status.INFO, "Already exist this name :-" + SBU);
-					testCase.log(Status.PASS, "Pass this test script");
-				} else {
 
-// Add SBU Code
-					Thread.sleep(1000);
-					SBUData.AddSbuBtn.click();
-					Thread.sleep(1000);
-					boolean SaveButton = true;
-					try {
-						Assert.assertEquals(SBUData.Submit.isDisplayed(), true);
-					} catch (AssertionError e) {
-						SaveButton = false;
-					}
-					if (SaveButton == true) {
+					if (checkAlreadyExit) {
+//						System.out.println("Already exist this SBU :- " + SBU);
 						testCase = extent.createTest("Add SBU");
-						SBUData.SbuName.sendKeys(SBU);
-						SBUData.SbuDes.sendKeys(Des);
-						SBUData.Submit.click();
+						testCase.log(Status.INFO, "Already exist this SBU :- " + SBU);
+						testCase.log(Status.PASS, "Pass this test script");
+					} else {
+//						Add SBU Code
 						Thread.sleep(1000);
-//					Checking Cancel button & Function
-//						if (AddSbuPage.CancelSbuBtn.isDisplayed()) {
-//							
-//							AddSbuPage.CancelSbuBtn.click();
-//
-//						}
+						AddSbuPage.AddSbuBtn.click();
+						Thread.sleep(1000);
+						testCase = extent.createTest("Add SBU");
+						AddSbuPage.SbuName.sendKeys(SBU);
+						AddSbuPage.SbuDes.sendKeys(Des);
+						AddSbuPage.Submit.click();
+						Thread.sleep(1000);
+//						Checking Cancel button & Function
+//							if (AddSbuPage.CancelSbuBtn.isDisplayed()) {
+//								
+//								AddSbuPage.CancelSbuBtn.click();
+						//
+//							}
 
-//	Checking Added SBU Available or not
-						boolean status1 = false;
-						for (WebElement ele : SBUData.SbuColumn) {
+//		Checking Added SBU Available or not in SBU Web Table
+						boolean CheckAddedValue = false;
+						for (WebElement ele : AddSbuPage.SbuColumn) {
 							String value = ele.getText();
 							Thread.sleep(3000);
 							if (value.contentEquals(SBU)) {
-								status1 = true;
+								CheckAddedValue = true;
 								break;
 							}
 						}
-//	Checking Expeted result & Actual result are equal or not
-						boolean result = true;
+//		Checking Expeted result & Actual result are equal or not
+						boolean addedValueAvailable = true;
 						try {
-							AssertJUnit.assertEquals(status1, true);
+							Assert.assertEquals(CheckAddedValue, true);
 						} catch (AssertionError e) {
-							result = false;
+							addedValueAvailable = false;
 						}
 
-						if (result == true) {
+//						Checking SBU save Button visible or not after added the value
+//						boolean save_button = true;
+//						try {
+//							Assert.assertEquals(AddSbuPage.Submit.isDisplayed(), false);
+//						} catch (AssertionError e) {
+//							save_button = false;
+//						}
+
+//						SBU adding Final results
+						if (addedValueAvailable) {
 							System.out.println("This " + SBU + " Available in webtable");
-							testCase.log(Status.INFO, "Finded Expected url in SBU Webtable");
-							testCase.log(Status.PASS, "Pass this test script");
+							testCase.log(Status.INFO, "Finded Expected SBU in SBU Webtable");
+							testCase.log(Status.INFO, "Added form Closed after added value");
+							testCase.log(Status.PASS, "This" + SBU + "added test script Pass");
 
 						} else {
 							System.out.println("This " + SBU + " Not available in webtable");
-							testCase.log(Status.INFO, "Unable to find Expected url in SBU Webtable");
-							testCase.log(Status.FAIL, "Fail this test script");
-
+							testCase.log(Status.INFO, "Unable to find Expected SBU in SBU Webtable");
+							testCase.log(Status.INFO, "Added form unable to Close after added value");
+							testCase.log(Status.FAIL, "This" + SBU + "added test script Fail");
 						}
-					} else {
-						System.out.println("Unable to find Save Button");
-						testCase = extent.createTest("Save Button");
-						testCase.log(Status.FAIL, "Don't have save button, so smoke fail");
+
 					}
-
 				}
-
 			}
-
-		}
-	}
-
-	@Test(priority = 1)
-	public void addSbuButton() throws InterruptedException {
-		PageFactory.initElements(driver, addSbupg);
-		Thread.sleep(1000);
-		SBUData.AddSbuBtn.click();
-		Thread.sleep(1000);
-//	Checking Form Heading
-		boolean FormHeading = true;
-		testCase = extent.createTest("SBUFormHeading");
-		try {
-			AssertJUnit.assertEquals(SBUData.SbuFormHeading.getText(), "Add SBU");
-		} catch (AssertionError e) {
-			FormHeading = false;
-		}
-		if (FormHeading) {
-			testCase.log(Status.PASS, "SBU Form Heading showing");
 		} else {
-			testCase.log(Status.FAIL, "Unable to find SBU form Heading");
-
+			System.out.println("Unable to find SBU Save Button / SBU Name TextBox / SBU Description TextBox");
+			testCase = extent.createTest("Save Button");
+			testCase.log(Status.INFO, "Don't have SBU name TextBox or SBU Description TextBox or SBU Save Button");
+			testCase.log(Status.INFO, "So Cant add SBU");
+			testCase.log(Status.FAIL, "Smoke fail");
 		}
-
-		Thread.sleep(1000);
-
-//	checking SBU name Heading
-		boolean SBUNameHeading = true;
-		testCase = extent.createTest("SBUNameHeading");
-		try {
-			AssertJUnit.assertEquals(SBUData.SbuNameHeading.getText(), "Sub Business Unit:");
-		} catch (AssertionError e) {
-			SBUNameHeading = false;
-		}
-		if (SBUNameHeading) {
-			testCase.log(Status.PASS, "SBU name Heading");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find SBU name Heading");
-
-		}
-		Thread.sleep(1000);
-
-//	checking SBU Description Heading
-		boolean SBUDescriptionHeading = true;
-		testCase = extent.createTest("SBUDescriptionHeading");
-		try {
-			AssertJUnit.assertEquals(SBUData.SbuDescriptionHeading.getText(), "Description:");
-		} catch (AssertionError e) {
-			SBUDescriptionHeading = false;
-		}
-		if (SBUDescriptionHeading) {
-			testCase.log(Status.PASS, "Showing SBU Description Heading");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find SBU Description Heading");
-
-		}
-		Thread.sleep(1000);
-
-//	checking SBU Name TextBox
-		boolean SBUNameTextBox = true;
-		testCase = extent.createTest("SBUNameTextBox");
-		try {
-			AssertJUnit.assertTrue(SBUData.SbuName.isDisplayed());
-		} catch (AssertionError e) {
-			SBUNameTextBox = false;
-		}
-		if (SBUNameTextBox) {
-			testCase.log(Status.PASS, "Showing SBU Name TextBox");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find SBU Name TextBox");
-
-		}
-		Thread.sleep(1000);
-
-//	checking SBU Description TextBox
-		boolean SBUDescriptionTextBox = true;
-		testCase = extent.createTest("SBUDescriptionTextBox");
-		try {
-			AssertJUnit.assertTrue(SBUData.SbuDes.isDisplayed());
-		} catch (AssertionError e) {
-			SBUDescriptionTextBox = false;
-		}
-		if (SBUDescriptionTextBox) {
-			testCase.log(Status.PASS, "Showing SBU Description TextBox");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find SBU Description TextBox");
-
-		}
-		Thread.sleep(1000);
-
-//	Checking Save Button
-		boolean SaveButton = true;
-		testCase = extent.createTest("SaveButton");
-		try {
-			AssertJUnit.assertTrue(SBUData.Submit.isDisplayed());
-		} catch (AssertionError e) {
-			SaveButton = false;
-		}
-		if (SaveButton) {
-			testCase.log(Status.PASS, "Showing Save Button");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find Save Button");
-
-		}
-		Thread.sleep(1000);
-
-//		Checking Cancel Button
-
-//		boolean CancelButton = true;
-//		testCase = extent.createTest("CancelButton");
-//		try {
-//			sa.assertEquals(AddSbuPage.CancelSbuBtn.isDisplayed(),true);
-//		} catch (AssertionError e) { 
-//			CancelButton = false;
-//		}
-//		if (CancelButton) {
-//			testCase.log(Status.PASS, "Showing Cancel Button");
-//		} else {
-//			testCase.log(Status.FAIL, "Unable to find Cancel Button");
-//
-//		}
-		Thread.sleep(1000);
-
-//	Checking Save Name
-		boolean SaveName = true;
-		testCase = extent.createTest("SaveName");
-		try {
-			AssertJUnit.assertEquals(SBUData.Submit.getText(), "Save");
-		} catch (AssertionError e) {
-			SaveName = false;
-		}
-		if (SaveName) {
-			testCase.log(Status.PASS, "Showing Save Name");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find Save Name");
-
-		}
-		Thread.sleep(1000);
-
-//		Checking Cancel Name
-//		boolean CancelName = true;
-//		testCase = extent.createTest("CancelName");
-//		try {
-//			AssertJUnit.assertEquals(AddSbuPage.CancelSbuBtn.getText(), "Cancel");
-//		} catch (AssertionError e) {
-//			CancelName = false;
-//		}
-//		if (CancelName) {
-//			testCase.log(Status.PASS, "Showing Cancel Name");
-//		} else {
-//			testCase.log(Status.FAIL, "Unable to find Cancel Name");
-//
-//		}
-//	Checking Close button 
-		boolean closebutton = true;
-		testCase = extent.createTest("CloseButton");
-		try {
-			AssertJUnit.assertEquals(SBUData.Submit.isDisplayed(), true);
-		} catch (AssertionError e) {
-			closebutton = false;
-		}
-		if (closebutton) {
-			testCase.log(Status.PASS, "Showing Save Name");
-		} else {
-			testCase.log(Status.FAIL, "Unable to find Save Name");
-
-		}
-		Thread.sleep(1000);
-
-		if (SBUData.CloseBtn.isDisplayed()) {
-			SBUData.CloseBtn.click();
-			// testCase = extent.createTest("CloseButton");
-		}
-		Thread.sleep(3000);
-//		if (AddSbuPage.CancelSbuBtn.isDisplayed()) {
-//			AddSbuPage.CancelSbuBtn.click();
-
-//			boolean CancelBtnFunction = true;
-//			testCase = extent.createTest("CancelButton");
-//			try {
-//				Assert.assertEquals(AddSbuPage.CancelSbuBtn.isDisplayed(), true);
-//			} catch (AssertionError e) {
-//				CancelBtnFunction = false;
-//			}
-//			if (CancelBtnFunction) {
-//				testCase.log(Status.PASS, " Cancel Button function working");
-//			} else {
-//				testCase.log(Status.FAIL, "Cancel Button function not working");
-//
-//			}
-//		}
 
 	}
 }
