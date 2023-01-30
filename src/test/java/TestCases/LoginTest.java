@@ -24,7 +24,7 @@ public class LoginTest extends DriverInitialization {
 
 		Thread.sleep(2000);
 		FileInputStream file = new FileInputStream(
-				"C:\\Users\\Priyanka\\Documents\\PRIYANKA-ECLIPSE\\Automation_QDMS\\src\\test\\java\\Excel\\Data.xlsx");
+				"C:\\vithusha\\QDMS_Automation\\src\\test\\java\\Data\\Data.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheet("Login");
 
