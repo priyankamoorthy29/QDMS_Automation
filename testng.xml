@@ -4,13 +4,15 @@
   <test thread-count="5" name="Test">
   
   <classes>
+  <class name="TestCases.LoginButtonTest"/>
       <class name="TestCases.LoginTest"/>
       <class name="TestCases.MasterTest"/> 
-      <class name="TestCases.AdminTest"/> 
+       <class name="TestCases.BellNotification"/> 
+     <!-- <class name="TestCases.AdminTest"/> 
        <class name="TestCases.SBUButtonTest"/>
      <class name="TestCases.SBUDataTest"/>
        
-     <!-- <class name="TestCases.AdminTest"/> 
+      <class name="TestCases.AdminTest"/> 
       <class name="TestCases.HomePageTest"/>
       <class name="TestCases.TopPanel"/>
       <class name="TestCases.SBUButtonTest"/>
