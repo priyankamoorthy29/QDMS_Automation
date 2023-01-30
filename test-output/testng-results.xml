@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="8" total="14" passed="5" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-01-27T12:06:53Z" name="Suite" finished-at="2023-01-27T12:07:40Z" duration-ms="47137">
+    <groups>
+    </groups>
+    <test started-at="2023-01-27T12:06:53Z" name="Test" finished-at="2023-01-27T12:07:40Z" duration-ms="47137">
+      <class name="TestCases.AdminTest">
+        <test-method signature="adminButton()[pri:0, instance:TestCases.AdminTest@39ac0c0a]" started-at="2023-01-27T12:06:59Z" name="adminButton" finished-at="2023-01-27T12:07:19Z" duration-ms="20410" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminButton -->
+      </class> <!-- TestCases.AdminTest -->
+      <class name="TestCases.LoginTest">
+        <test-method is-config="true" signature="main()[pri:0, instance:TestCases.LoginTest@1984b1f]" started-at="2023-01-27T12:06:49Z" name="main" finished-at="2023-01-27T12:06:53Z" duration-ms="3524" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- main -->
+        <test-method signature="Login()[pri:0, instance:TestCases.LoginTest@1984b1f]" started-at="2023-01-27T12:06:53Z" name="Login" finished-at="2023-01-27T12:06:58Z" duration-ms="5484" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="closeChrome()[pri:0, instance:TestCases.LoginTest@1984b1f]" started-at="2023-01-27T12:07:40Z" name="closeChrome" finished-at="2023-01-27T12:07:41Z" duration-ms="524" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeChrome -->
+      </class> <!-- TestCases.LoginTest -->
+      <class name="TestCases.MasterTest">
+        <test-method signature="Login()[pri:0, instance:TestCases.MasterTest@3bd323e9]" started-at="2023-01-27T12:06:58Z" name="Login" finished-at="2023-01-27T12:06:59Z" duration-ms="277" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+      </class> <!-- TestCases.MasterTest -->
+      <class name="TestCases.SBUDataTest">
+        <test-method signature="AddSbuData()[pri:0, instance:TestCases.SBUDataTest@4ff8d125]" started-at="2023-01-27T12:07:21Z" name="AddSbuData" finished-at="2023-01-27T12:07:25Z" duration-ms="3869" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "java.util.List.iterator()" because "Pages.SBUData.SbuColumn" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "Pages.SBUData.SbuColumn" is null
+at TestCases.SBUDataTest.AddSbuData(SBUDataTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddSbuData -->
+        <test-method signature="addSbuButton()[pri:1, instance:TestCases.SBUDataTest@4ff8d125]" started-at="2023-01-27T12:07:25Z" name="addSbuButton" finished-at="2023-01-27T12:07:40Z" duration-ms="14787" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addSbuButton -->
+      </class> <!-- TestCases.SBUDataTest -->
+      <class name="TestCases.SBUButtonTest">
+        <test-method signature="sbu()[pri:0, instance:TestCases.SBUButtonTest@c7ba306]" started-at="2023-01-27T12:07:19Z" name="sbu" finished-at="2023-01-27T12:07:21Z" duration-ms="2273" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sbu -->
+      </class> <!-- TestCases.SBUButtonTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

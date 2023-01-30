@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+  
+  <classes>
+      <class name="TestCases.LoginTest"/>
+      <class name="TestCases.MasterTest"/> 
+      <class name="TestCases.AdminTest"/> 
+       <class name="TestCases.SBUButtonTest"/>
+     <class name="TestCases.SBUDataTest"/>
+       
+     <!-- <class name="TestCases.AdminTest"/> 
+      <class name="TestCases.HomePageTest"/>
+      <class name="TestCases.TopPanel"/>
+      <class name="TestCases.SBUButtonTest"/>
+     <class name="TestCases.SBUDataTest"/>
+      <class name="TestCases.AddPlantButtoncheck"/>
+     <class name="TestCases.MaterialTest"/> 
+      <class name="TestCases.MatMainCatAddButTest"/> 
+       <class name="TestCases.MaterialStateTest"/> 
+      <class name="TestCases.SourceTest"/> 
+     <class name="TestCases.CustomerTest"/> 
+      <class name="TestCases.ProjectTest"/> -->
+       
+      
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
